@@ -5,12 +5,12 @@
     <title>Tabbed info box</title>
     <style>
 
-        * {
-            box-sizing: border-box;
-        }
-
         html {
             font-family: sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -20,7 +20,9 @@
         .info-box {
             width: 450px;
             height: 400px;
-            margin: 0 auto;
+            /*margin: 0 auto;*/
+            position: fixed;
+            top: 0;
         }
 
         .info-box ul {
@@ -28,35 +30,43 @@
             padding-left: 0;
         }
 
-        .info-box li {
-            list-style-type: none;
+        .info-box > ul > li {
             float: left;
-            width: 150px;
+            min-width: 150px;
+            list-style-type: none;
         }
 
         .info-box li a {
-            text-decoration: none;
-            width: 100%;
-            background-color: red;
-            line-height: 3;
-            color: black;
+            background: red;
             text-align: center;
             display: inline-block;
+            width: 100%;
+            line-height: 3;
+            color: black;
+            text-decoration: none;
+
+        }
+
+        .info-box li a.active,
+        .info-box li a:hover,
+        .info-box li a:focus {
+            background: #a60000;
+            color: white;
         }
 
         .info-box .panels {
+            clear: both;
             position: relative;
             height: 352px;
-            clear: both;
         }
 
-        .info-box article {
+        .info-box .panels article {
             position: absolute;
+            background: #a60000;
             top: 0;
             left: 0;
-            padding: 10px;
             height: 352px;
-            background-color: #a60000;
+            padding: 10px;
             color: white;
         }
 
@@ -64,11 +74,33 @@
             z-index: 1;
         }
 
+        .fake-content {
+            margin-left: 470px;
+            height: 2000px;
+            padding: 10px;
+            background: #a60000;
+            color: white;
+        }
+
     </style>
 </head>
 <body>
 
+<section class="fake-content">
+    <h1>Fake content</h1>
+    <p>This is fake content. Your main web page contents would probably go here.</p>
+    <p>This is fake content. Your main web page contents would probably go here.</p>
+    <p>This is fake content. Your main web page contents would probably go here.</p>
+    <p>This is fake content. Your main web page contents would probably go here.</p>
+    <p>This is fake content. Your main web page contents would probably go here.</p>
+    <p>This is fake content. Your main web page contents would probably go here.</p>
+    <p>This is fake content. Your main web page contents would probably go here.</p>
+    <p>This is fake content. Your main web page contents would probably go here.</p>
+</section>
+
 <section class="info-box">
+
+
     <ul>
         <li><a href="#" class="active">Tab 1</a></li>
         <li><a href="#">Tab 2</a></li>
@@ -123,8 +155,28 @@
 </section>
 
 <script>
+    var tabs = document.querySelectorAll('.info-box ul a');
+    var panels = document.querySelectorAll('.info-box .panels article');
+    for (i = 0; i < tabs.length; i++) {
+        var tab = tabs[i];
+        setTabHandler(tab, i);
+    }
 
+    function setTabHandler(tab, tabPos) {
+        tab.onclick = function () {
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].className = '';
+            }
 
+            tab.className = 'active';
+
+            for (i = 0; i < panels.length; i++) {
+                panels[i].className = '';
+            }
+
+            panels[tabPos].className = 'active-panel';
+        }
+    }
 </script>
 
 </body>
