@@ -1,0 +1,27 @@
+{
+  "name": "boot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "css-loader": "^0.28.9",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.0",
+    "precss": "^3.1.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.10.0"
+  }
+}
