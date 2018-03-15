@@ -4,7 +4,43 @@
     <meta charset="utf-8">
     <title>Simple grid</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            width: 980px;
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            padding-right: 20px;
+        }
+
+        .row {
+            /*float:left;*/
+            clear: both;
+        }
+
+        .col {
+            float: left;
+            margin-left: 20px;
+            width: 60px;
+            background: rgb(255, 150, 150);
+        }
+
+        .col.span2 {width: 140px;}
+        .col.span3 { width: 220px; }
+        /* And so on... */
+        .col.span4 { width: 300px; }
+        .col.span5 { width: 380px; }
+        .col.span6 { width: 460px; }
+        .col.span7 { width: 540px; }
+        .col.span8 { width: 620px; }
+        .col.span9 { width: 700px; }
+        .col.span10 { width: 780px; }
+        .col.span11 { width: 860px; }
+        .col.span12 { width: 940px; }
     </style>
 </head>
 
@@ -25,11 +61,20 @@
         <div class="col">12</div>
     </div>
     <div class="row">
-        <div class="col span1">13</div>
-        <div class="col span6">14</div>
-        <div class="col span3">15</div>
-        <div class="col span2">16</div>
+        <div class="col">13</div>
+        <div class="col">14</div>
+        <div class="col">15</div>
+        <div class="col">16</div>
     </div>
+
+
+    <div class="row">
+        <div class="col span1">17</div>
+        <div class="col span6">18</div>
+        <div class="col span3">19</div>
+        <div class="col span2">20</div>
+    </div>
+
 </div>
 </body>
 </html>
